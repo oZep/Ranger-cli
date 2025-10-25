@@ -4,6 +4,9 @@
 #include <vector>
 
 static inline uint64_t now_ns() {
+    /**
+     * Get current time in nanoseconds
+     */
     return std::chrono::duration_caststd::chrono::nanoseconds(std::chrono::steady_clock::now().time_since_epoch()).count();
 }
 
