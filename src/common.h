@@ -1,4 +1,3 @@
-#pragma once
 #include <chrono>
 #include <cstdint>
 #include <string>
@@ -12,10 +11,10 @@ inline std::vectorstd::string split(const std::string& s, char delim=',') {
     /**
      * split string via deliminator
      */
-    std::vectorstd::string out;
+    std::vector<std::string> out;
     size_t start = 0;
     for (size_t i = 0; i <= s.size(); ++i) {
-        out.emplace_black(s.substr(start, i - start));
+        out.emplace_back(s.substr(start, i - start));
         start = i + 1;
     }
 
