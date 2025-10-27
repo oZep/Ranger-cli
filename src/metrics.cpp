@@ -1,6 +1,8 @@
 #include "metrics.h"
 #include <iomanip>
 #include <sstream>
+#include "tcp_server.h"
+#include "udp_forwarder.h"
 
 std::string Metrics::to_json() const {
     /**
