@@ -1,5 +1,11 @@
 ## Ranger-cli
 
+####
+
+Long running C++ backend (packet_server) captures with libcap and accepts control commands (set_filter, pause, send) over the existing control socket (TCP 127.0.0.1:9001). The Go TUI sends a JSON command when the user types a port; the C++ backend applies a BPF filter (tcp AND port XXXX) and starts sending packet events to the UI.
+
+####
+
 A multi-protocol server with:
 - Async TCP server (io_uring) with zero-copy in-kernel send where supported
 - UDP packet forwarder with load distribution and hashing
@@ -35,5 +41,3 @@ Message schema (newline-delimited JSON)
 ```
 { "type":"command", "cmd":"send", "proto":"udp", "host":"127.0.0.1", "port":7001, "payload_base64":"aGVsbG8=" }
 ```
-
-Long running C++ backend (packet_server) captures with libcap and accepts control commands (set_filter, pause, send) over the existing control socket (TCP 127.0.0.1:9001). The Go TUI sends a JSON command when the user types a port; the C++ backend applies a BPF filter (tcp AND port XXXX) and starts sending packet events to the UI.
